@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/productDetails_rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <!-- <ScrollView -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="match_parent" -->
+    <!-- android:layout_weight="1" > -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/imageView_parcelInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|top"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/image_uploading" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1.2"
+            android:background="@drawable/view_round_corner_with_border"
+            android:gravity="left"
+            android:orientation="vertical" >
+
+            <com.pankaj.zoomcars.components.TextViewCircular
+                android:id="@+id/textview_carInfo_name"
+                style="@style/textviewstyle_MediumBig"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="0"
+                android:background="@drawable/button_selector"
+                android:gravity="left|center_vertical"
+                android:padding="5dp"
+                android:text="@string/Name"
+                android:textColor="@color/white" />
+
+             <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="0"
+                    android:orientation="horizontal"
+                    android:padding="5dp" >
+
+                    <com.pankaj.zoomcars.components.TextViewCircular
+                        android:id="@+id/textView_carInfo_rating"
+                        style="@style/textviewstyle_Medium.light"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="2dp"
+                        android:gravity="center_vertical|left"
+                        android:text="@string/rating" />
+                </LinearLayout>
+                
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="0"
+                android:orientation="horizontal"
+                android:padding="5dp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <com.pankaj.zoomcars.components.TextAwesome
+                        style="@style/textviewstyle_FontAwesome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0"
+                        android:gravity="center_vertical"
+                        android:padding="2dp"
+                        android:text="@string/fa_shopping_cart" />
+
+                    <com.pankaj.zoomcars.components.TextViewCircular
+                        android:id="@+id/textView_carInfo_type"
+                        style="@style/textviewstyle_Medium.light"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|left"
+                        android:text="@string/type" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <com.pankaj.zoomcars.components.TextAwesome
+                        style="@style/textviewstyle_FontAwesome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0"
+                        android:gravity="center_vertical"
+                        android:padding="2dp"
+                        android:text="@string/fa_inr" />
+
+                    <com.pankaj.zoomcars.components.TextViewCircular
+                        android:id="@+id/textView_carInfo_value"
+                        style="@style/textviewstyle_Medium.light"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/price_hr" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="0"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical" >
+
+
+                    <com.pankaj.zoomcars.components.TextViewCircular
+                        android:id="@+id/textView_carInfo_seater"
+                        style="@style/textviewstyle_Medium.light"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/seater_info" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical" >
+
+                    <com.pankaj.zoomcars.components.TextViewCircular
+                        android:id="@+id/textView_carInfo_ac"
+                        style="@style/textviewstyle_Medium.light"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/ac_info" />
+                </LinearLayout>
+                
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <!-- </ScrollView> -->
+
+</LinearLayout>

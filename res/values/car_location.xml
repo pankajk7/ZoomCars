@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="share_location">Share</string>
+    <string name="message_text">Name: %1$s \nType: %2$s \nPrice/hr: %3$s</string>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="api_hit">API hits: %1$s</string>
+    
+    <string name="Name">Name</string>
+    <string name="Type">Type</string>
+    <string name="Sort">Sort</string>
+    <string name="back">Back</string>
+    <string name="sms">SMS</string>
+    <string name="list_all">List All</string>
+    
+    <string name="rupee">%1$s</string>
+    
+    <string name="total_cars">Total Cars: %1$s</string>
+    <string name="price_hr">price/hr</string>
+    <string name="rating">rating</string>
+    
+    <string name="search_by">Search (by Price/hr, rating)</string>
+</resources>

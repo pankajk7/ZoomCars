@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.pankaj.zoomcars.components.EditTextRegularFont
+        android:id="@+id/editText_search"
+        style="@style/textviewstyle_Medium.black"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:layout_weight="0"
+        android:background="@drawable/view_round_corner_with_border"
+        android:ellipsize="end"
+        android:hint="@string/search_by"
+        android:padding="5dp"
+        android:singleLine="true" />
+
+    <ListView
+        android:id="@+id/listview_listCars"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:divider="@color/white"
+        android:dividerHeight="1dp"
+        android:fastScrollEnabled="true" >
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="0"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="0"
+            android:background="@drawable/view_round_corner_with_border"
+            android:orientation="horizontal" >
+
+            <com.pankaj.zoomcars.components.TextViewCircular
+                android:id="@+id/textView_listCars_apiHit"
+                style="@style/textviewstyle_Medium.light"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1.2"
+                android:gravity="center_vertical|left"
+                android:padding="5dp"
+                android:text="@string/api_hit" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="0"
+                android:background="@color/header_text_color" />
+
+            <com.pankaj.zoomcars.components.TextViewCircular
+                android:id="@+id/textView_listCars_totalCars"
+                style="@style/textviewstyle_Medium.light"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:text="@string/total_cars" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <com.pankaj.zoomcars.components.ButtonRegularFont
+                android:id="@+id/button_listCars_listAll"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/list_all"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="3"
+                android:background="@drawable/view_round_corner_with_border"
+                android:gravity="center" >
+
+                <com.pankaj.zoomcars.components.TextViewCircular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Sort"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/view_with_border"
+                android:orientation="horizontal" >
+
+                <com.pankaj.zoomcars.components.ButtonRegularFont
+                    android:id="@+id/button_listCars_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_selector"
+                    android:text="@string/price_hr"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <com.pankaj.zoomcars.components.ButtonRegularFont
+                    android:id="@+id/button_listCars_rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_selector"
+                    android:text="@string/rating"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

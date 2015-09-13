@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="color">Color:</string>
+
+    <string name="q">Q</string>
+    <string name="type">Type: %1$s</string>
+    <string name="rating_info">Rating: %1$s</string>
+    <string name="price_info">Price/hr: %1$s</string>
+    <string name="date_info">Date: %1$s</string>
+    <string name="seater_info">Seater: %1$s</string>
+    <string name="ac_info">Ac: %1$s</string>
+</resources>
