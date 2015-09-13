@@ -25,6 +25,8 @@ import com.pankaj.zoomcars.webservice.RestWebService;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -39,6 +41,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RatingBar;
+import android.widget.RatingBar.OnRatingBarChangeListener;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
@@ -60,8 +64,8 @@ public class CarListFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		init();
-		View rootView = inflater.inflate(R.layout.list_cars_layout,
-				container, false);
+		View rootView = inflater.inflate(R.layout.list_cars_layout, container,
+				false);
 		findViews(rootView);
 		listeners();
 		hideKeypad();
@@ -103,10 +107,8 @@ public class CarListFragment extends Fragment {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				Car objCar = (Car) parent.getAdapter().getItem(
-						position);
-				Intent intent = new Intent(getActivity(),
-						CarInfoActivity.class);
+				Car objCar = (Car) parent.getAdapter().getItem(position);
+				Intent intent = new Intent(getActivity(), CarInfoActivity.class);
 				intent.putExtra(Constants.PARAMETER_CAR_INFO, objCar);
 				getActivity().startActivity(intent);
 			}
@@ -116,7 +118,8 @@ public class CarListFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				if (adapter != null) {
-					ArrayList<Car> arrayList = (ArrayList<Car>)adapter.getList();
+					ArrayList<Car> arrayList = (ArrayList<Car>) adapter
+							.getList();
 					Collections.sort(arrayList, byValue());
 					adapter.addList(arrayList);
 				}
@@ -127,14 +130,14 @@ public class CarListFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				if (adapter != null) {
-					ArrayList<Car> arrayList = (ArrayList<Car>)adapter.getList();
+					ArrayList<Car> arrayList = (ArrayList<Car>) adapter
+							.getList();
 					Collections.sort(arrayList, byRating());
 					adapter.addList(arrayList);
 				}
 			}
 		});
-		
-		
+
 		searchEditText.addTextChangedListener(new TextWatcher() {
 
 			@Override
@@ -162,8 +165,8 @@ public class CarListFragment extends Fragment {
 								string = string.toLowerCase();
 								String name = arrayList.get(i).getName()
 										.toLowerCase();
-								String price = arrayList.get(i).getHourly_rate()
-										.toLowerCase();
+								String price = arrayList.get(i)
+										.getHourly_rate().toLowerCase();
 								String weight = arrayList.get(i).getRating()
 										.toLowerCase();
 								if (name.startsWith(string)) {
@@ -175,20 +178,22 @@ public class CarListFragment extends Fragment {
 								}
 							}
 							adapter.addList(tempList);
-							totalParcelTextView.setText(String.format(getActivity().getResources()
-									.getString(R.string.total_cars), tempList.size()));
+							totalParcelTextView.setText(String.format(
+									getActivity().getResources().getString(
+											R.string.total_cars),
+									tempList.size()));
 						}
 					} else {
 						adapter.addList(carInfoList);
-						totalParcelTextView.setText(String.format(getActivity().getResources()
-								.getString(R.string.total_cars), carInfoList.size()));
+						totalParcelTextView.setText(String.format(getActivity()
+								.getResources().getString(R.string.total_cars),
+								carInfoList.size()));
 					}
 				}
 			}
 		});
 	}
 
-	
 	private Comparator<Car> byValue() {
 		return new Comparator<Car>() {
 			@Override
@@ -212,7 +217,7 @@ public class CarListFragment extends Fragment {
 			}
 		};
 	}
-	
+
 	private void getList() {
 		boolean showLoading = true;
 
@@ -223,8 +228,8 @@ public class CarListFragment extends Fragment {
 		if (data != null) {
 			CarListInfo objCarListInfo = new Gson().fromJson(data,
 					CarListInfo.class);
-			carInfoList = new ArrayList<Car>(
-					Arrays.asList(objCarListInfo.getCars()));
+			carInfoList = new ArrayList<Car>(Arrays.asList(objCarListInfo
+					.getCars()));
 			if (carInfoList.size() > 0) {
 				setAdapter();
 				totalParcelTextView.setText(String.format(getActivity()
@@ -248,8 +253,8 @@ public class CarListFragment extends Fragment {
 		new RestWebService(getActivity()) {
 			public void onSuccess(String data) {
 				if (showLoading) {
-					CarListInfo objCarListInfo = new Gson().fromJson(
-							data, CarListInfo.class);
+					CarListInfo objCarListInfo = new Gson().fromJson(data,
+							CarListInfo.class);
 					carInfoList = new ArrayList<Car>(
 							Arrays.asList(objCarListInfo.getCars()));
 					new ReadWriteJsonFileUtils(getActivity())
@@ -312,15 +317,30 @@ public class CarListFragment extends Fragment {
 				super.setValues(holder, object);
 				if (object instanceof Car) {
 					Car obj = (Car) object;
-					holder.nameTextView.setText(obj.getName() + ", "
-							+ obj.getRating());
+					holder.nameTextView.setText(obj.getName());
 
 					Resources res = getResources();
 					String inapp = String.format(res.getString(R.string.rupee),
 							obj.getHourly_rate());
 
 					holder.priceTextView.setText(inapp);
-
+					try {
+						holder.ratingBar.setRating(Float.parseFloat(obj
+								.getRating()));
+//						holder.ratingBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
+//							
+//							@Override
+//							public void onRatingChanged(RatingBar ratingBar, float rating,
+//									boolean fromUser) {
+//								LayerDrawable stars = (LayerDrawable) ratingBar.getProgressDrawable();
+//								stars.getDrawable(2).setColorFilter(getResources().getColor(R.color.setFullySelected), PorterDuff.Mode.SRC_ATOP);
+//								stars.getDrawable(1).setColorFilter(getResources().getColor(R.color.setPartiallySelected), PorterDuff.Mode.SRC_ATOP);
+//								stars.getDrawable(0).setColorFilter(getResources().getColor(R.color.setNoneSelected), PorterDuff.Mode.SRC_ATOP);
+//							}
+//						});
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 			}
 		};
@@ -346,4 +366,3 @@ public class CarListFragment extends Fragment {
 				.getString(R.string.total_cars), "N/A"));
 	}
 }
-

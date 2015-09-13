@@ -5,47 +5,79 @@
     android:orientation="horizontal"
     android:padding="10dp" >
 
-    <com.pankaj.zoomcars.components.TextViewCircular
-        android:id="@+id/textview_name"
-        style="@style/textviewstyle_Medium"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:lines="2"
-        android:padding="2dp"
-        android:singleLine="true"
-        android:ellipsize="end" />
+        android:orientation="vertical" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2.3" >
-
-        <com.pankaj.zoomcars.components.TextViewCircular
-            android:id="@+id/textview_price"
-            style="@style/textviewstyle_small"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:padding="2dp"/>
+            android:layout_weight="1" >
 
-        <com.pankaj.zoomcars.components.TextAwesome
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_toLeftOf="@id/textview_price"
-            android:gravity="center"
-            android:text="@string/fa_inr"
-            android:textColor="@color/black"
-            android:padding="2dp"
-            android:textSize="14sp" />
+            <com.pankaj.zoomcars.components.TextViewCircular
+                android:id="@+id/textview_name"
+                style="@style/textviewstyle_MediumBig"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:lines="2"
+                android:padding="2dp"
+                android:singleLine="true" />
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2.3" >
+
+                <com.pankaj.zoomcars.components.TextViewCircular
+                    android:id="@+id/textview_price"
+                    style="@style/textviewstyle_small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:padding="2dp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal" 
+            android:gravity="center_vertical">
+
+            <com.pankaj.zoomcars.components.TextViewCircular
+                android:id="@+id/textview_rating"
+                style="@style/textviewstyle_small"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="@string/rating_star" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:numStars="5"
+                android:rating="2.5"
+                android:layout_gravity="center"
+                android:stepSize=".1"
+                android:clickable="false" />
+        </LinearLayout>
+    </LinearLayout>
 
     <com.pankaj.zoomcars.components.TextAwesome
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2.8"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
         android:gravity="center"
         android:text="@string/fa_angle_right"
         android:textColor="@color/primary_color"

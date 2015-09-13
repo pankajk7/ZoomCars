@@ -14,4 +14,10 @@
      <color name="button_home_pressed">#FF5304</color>
     <color name="button_home_normal">#FB7750</color>
     
+    <color name="setFullySelected">@color/primary_color</color>
+    <color name="setPartiallySelected">@color/primary_color</color>
+    <color name="setNoneSelected">@color/header_text_color</color>
+    
+    <color name="search_calendar_background">#222222</color>    
+	<color name="search_calendar_month_color">#818181</color>
 </resources>

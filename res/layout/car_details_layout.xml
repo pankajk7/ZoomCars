@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:layout_weight="1.2"
+            android:layout_weight="1"
             android:background="@drawable/view_round_corner_with_border"
             android:gravity="left"
             android:orientation="vertical" >
@@ -47,24 +47,36 @@
                 android:text="@string/Name"
                 android:textColor="@color/white" />
 
-             <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_weight="0"
-                    android:orientation="horizontal"
-                    android:padding="5dp" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:orientation="horizontal"
+                android:padding="5dp" >
 
-                    <com.pankaj.zoomcars.components.TextViewCircular
-                        android:id="@+id/textView_carInfo_rating"
-                        style="@style/textviewstyle_Medium.light"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:padding="2dp"
-                        android:gravity="center_vertical|left"
-                        android:text="@string/rating" />
-                </LinearLayout>
-                
+                <com.pankaj.zoomcars.components.TextViewCircular
+                    android:id="@+id/textView_carInfo_rating"
+                    style="@style/textviewstyle_Medium.light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:gravity="center_vertical|left"
+                    android:padding="2dp"
+                    android:text="@string/rating_star" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar_carInfo"
+                    style="?android:attr/ratingBarStyleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0"
+                    android:clickable="false"
+                    android:numStars="5"
+                    android:rating="2.5"
+                    android:stepSize=".1" />
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -77,15 +89,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="horizontal" >
-
-                    <com.pankaj.zoomcars.components.TextAwesome
-                        style="@style/textviewstyle_FontAwesome"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0"
-                        android:gravity="center_vertical"
-                        android:padding="2dp"
-                        android:text="@string/fa_shopping_cart" />
 
                     <com.pankaj.zoomcars.components.TextViewCircular
                         android:id="@+id/textView_carInfo_type"
@@ -123,24 +126,20 @@
                 </LinearLayout>
             </LinearLayout>
 
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_weight="0"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginBottom="10dp"
+                android:layout_weight="0"
                 android:orientation="horizontal" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical" >
-
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
 
                     <com.pankaj.zoomcars.components.TextViewCircular
                         android:id="@+id/textView_carInfo_seater"
@@ -156,8 +155,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical" >
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
 
                     <com.pankaj.zoomcars.components.TextViewCircular
                         android:id="@+id/textView_carInfo_ac"
@@ -168,7 +167,41 @@
                         android:gravity="center_vertical"
                         android:text="@string/ac_info" />
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" 
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+                <com.pankaj.zoomcars.components.TextViewCircular
+                    android:id="@+id/textView_carInfo_date"
+                    style="@style/textviewstyle_Medium.light"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/view_rectangle_border"
+                    android:text="@string/date_info" 
+                    android:paddingLeft="5dp"
+                    android:drawableRight="@drawable/calendar"
+                    android:paddingRight="5dp"/>
                 
+                <com.pankaj.zoomcars.components.ButtonRegularFont 
+                    android:id="@+id/button_carInfo_book"
+                    style="@style/button.roundcorner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textSize="18sp"
+                    android:text="@string/book_info"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

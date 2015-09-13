@@ -19,7 +19,11 @@ public class Constants {
 	public final static String SHARED_PREF_FILE_NAME = "porter_file";
 	public final static String ERROR_MESSAGE = "error_message";
 	public final static String PARAMETER_BUNDLE = "bundle";
+	public final static int INTENT_REQUEST_CODE = 1;
 	
+	
+	//Calendar
+	public final static String CALENDAR_DATE = "selected_date";
 	
 	//step2
 	public final static String FRAGMENT_TAG_1 = "fragment1";

@@ -1,9 +1,6 @@
 package com.pankaj.zoomcars.utils;
 
 import android.app.Activity;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.Toast;
 
 public class AlertMessage {

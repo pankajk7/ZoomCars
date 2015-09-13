@@ -12,6 +12,15 @@ public class Car implements Serializable{
 	String ac;
 	Locations location;
 	
+	@Override
+	public String toString() {
+		return "Name: "+ name + "\n Type: " + type + "\n Price/hr: " + hourly_rate +
+				"\n Seater: "+ seater + "\n Rating: " + rating +
+				"\n Latitude: " + location.getLatitude()
+				 + "\n Longitude: " + location.getLongitude();
+	}
+
+	
 	public String getName() {
 		return name;
 	}

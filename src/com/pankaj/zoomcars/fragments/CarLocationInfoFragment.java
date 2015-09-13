@@ -8,6 +8,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.pankaj.zoomcars.R;
+import com.pankaj.zoomcars.activities.BookingHistory;
 import com.pankaj.zoomcars.activities.CarInfoActivity;
 import com.pankaj.zoomcars.entities.Car;
 
@@ -32,6 +33,7 @@ public class CarLocationInfoFragment implements OnMapReadyCallback {
 
 	Button shareButton;
 	Button smsButton;
+	Button bookingHistoryButton;
 
 	Car objCar;
 	Activity activity;
@@ -54,9 +56,11 @@ public class CarLocationInfoFragment implements OnMapReadyCallback {
 
 	private void findViews(View rootView) {
 		shareButton = (Button) rootView
-				.findViewById(R.id.button_parcelLocation_share);
+				.findViewById(R.id.button_carLocation_share);
 		smsButton = (Button) rootView
-				.findViewById(R.id.button_parcelLocation_sms);
+				.findViewById(R.id.button_carLocation_sms);
+		bookingHistoryButton = (Button) rootView
+				.findViewById(R.id.button_carLocation_bookingHistory);
 	}
 
 	private void listeners() {
@@ -85,6 +89,15 @@ public class CarLocationInfoFragment implements OnMapReadyCallback {
 			@Override
 			public void onClick(View v) {
 				showDialog();
+			}
+		});
+		
+		bookingHistoryButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(activity, BookingHistory.class);
+				activity.startActivity(intent);
 			}
 		});
 	}

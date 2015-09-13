@@ -2,5 +2,7 @@
 <resources>
 
     <string name="app_name">ZoomCars</string>
+    <string name="title_activity_booking_history">BookingHistory</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

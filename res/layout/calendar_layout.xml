@@ -1,0 +1,196 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/search_calendar_background"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <LinearLayout
+        android:id="@+id/searchCalendar_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/searchCalendar_imageButton_close"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="0"
+            android:src="@drawable/close"
+            android:background="@color/search_calendar_background" />
+
+        <com.pankaj.zoomcars.components.TextViewCircular
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/date_of_booking"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+        
+        <View 
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="0"
+            android:background="@color/search_calendar_background"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/seachCalendar_viewLine0"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/searchCalendar_title"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/seachCalendar_viewLine0"
+        android:layout_weight="0"
+        android:background="@color/search_calendar_background"
+        android:gravity="center_vertical" >
+
+        <RelativeLayout
+            android:id="@+id/searchCalendar_previous"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_weight="0" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/previous" />
+        </RelativeLayout>
+
+        <com.pankaj.zoomcars.components.TextViewCircular
+            android:id="@+id/searchCalendar_textview_month"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/month"
+            android:textColor="@color/search_calendar_month_color"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/searchCalendar_next"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_weight="0" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/next" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/seachCalendar_viewLine1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/header"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/weeks"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/seachCalendar_viewLine1"
+        android:layout_weight="0"
+        android:background="@color/search_calendar_background"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" >
+
+        <com.pankaj.zoomcars.components.TextViewCircular
+            style="@style/textviews_searchcalendar_Week"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="SUN" />
+
+        <com.pankaj.zoomcars.components.TextViewCircular
+            style="@style/textviews_searchcalendar_Week"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="MON" />
+
+        <com.pankaj.zoomcars.components.TextViewCircular
+            style="@style/textviews_searchcalendar_Week"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="TUE" />
+
+        <com.pankaj.zoomcars.components.TextViewCircular
+            style="@style/textviews_searchcalendar_Week"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="WED" />
+
+        <com.pankaj.zoomcars.components.TextViewCircular
+            style="@style/textviews_searchcalendar_Week"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="THU" />
+
+        <com.pankaj.zoomcars.components.TextViewCircular
+            style="@style/textviews_searchcalendar_Week"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="FRI" />
+
+        <com.pankaj.zoomcars.components.TextViewCircular
+            style="@style/textviews_searchcalendar_Week"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="SAT" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/weeks"
+        android:layout_weight="0"
+        android:background="@color/black" />
+
+    <GridView
+        android:id="@+id/searchCalendar_gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line1"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0"
+        android:background="@color/black"
+        android:horizontalSpacing="1dp"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="7"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="1dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchCalendar_gridview"
+        android:layout_weight="0" >
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="0"
+            android:background="@color/black" />
+    </LinearLayout>
+
+</RelativeLayout>

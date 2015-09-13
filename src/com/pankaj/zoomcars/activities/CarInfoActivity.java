@@ -1,13 +1,14 @@
 package com.pankaj.zoomcars.activities;
 
+
 import com.pankaj.zoomcars.R;
 import com.pankaj.zoomcars.components.SlidingTabLayout;
 import com.pankaj.zoomcars.entities.Car;
 import com.pankaj.zoomcars.fragments.CarDetailFragment;
 import com.pankaj.zoomcars.fragments.CarLocationInfoFragment;
 import com.pankaj.zoomcars.utils.Constants;
+import com.pankaj.zoomcars.utils.DateTimeUtility;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +26,10 @@ public class CarInfoActivity extends AppCompatActivity{
 	private ViewPager mViewPager;
 	
 	Car objCar;
+	String selectedDate;
+	View scrolledView;
+	
+	SelectDate selectDateListener;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +68,8 @@ public class CarInfoActivity extends AppCompatActivity{
 	
 	
 	private void init() {
-
+		selectedDate = "";
+		scrolledView = null;
 		try {
 			Intent intent = getIntent();
 			objCar = (Car) intent
@@ -142,6 +148,7 @@ public class CarInfoActivity extends AppCompatActivity{
 							objCar, CarInfoActivity.this);
 				}
 				container.addView(view);
+				scrolledView = view;
 			return view;
 		}
 
@@ -162,5 +169,28 @@ public class CarInfoActivity extends AppCompatActivity{
 			onBackPressed();
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (requestCode == Constants.INTENT_REQUEST_CODE) {
+			// Make sure the request was successful
+			if (resultCode == RESULT_OK) {
+				String dateString = data.getExtras().getString(
+						Constants.CALENDAR_DATE);
+				selectedDate = new DateTimeUtility().getSearchDateString(dateString);
+				
+				selectDateListener.onSelectDate(selectedDate);  //callback for date selection
+			}
+		}
+	}
+	
+	public interface SelectDate{
+		public void onSelectDate(String selectedDate);
+	}
+	
+	public void onDateClicked(SelectDate selectDateListeners){
+		this.selectDateListener = selectDateListeners;
 	}
 }

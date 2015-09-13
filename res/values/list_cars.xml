@@ -9,11 +9,12 @@
     <string name="sms">SMS</string>
     <string name="list_all">List All</string>
     
-    <string name="rupee">%1$s</string>
+    <string name="rupee">Rs./hr: %1$s</string>
     
     <string name="total_cars">Total Cars: %1$s</string>
     <string name="price_hr">price/hr</string>
     <string name="rating">rating</string>
+    <string name="rating_star">Rating: </string>
     
-    <string name="search_by">Search (by Price/hr, rating)</string>
+    <string name="search_by">Search (by Name, Price/hr, Rating)</string>
 </resources>
